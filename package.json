@@ -9,6 +9,41 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.0.0"
-  }
+    "vite": "^4.0.3"
+  },
+  "description": "Simple form and input validator package. ",
+  "main": "main.js",
+  "dependencies": {
+    "esbuild": "^0.16.10",
+    "function-bind": "^1.1.1",
+    "has": "^1.0.3",
+    "nanoid": "^3.3.4",
+    "postcss": "^8.4.20",
+    "picocolors": "^1.0.0",
+    "is-core-module": "^2.11.0",
+    "path-parse": "^1.0.7",
+    "rollup": "^3.8.1",
+    "resolve": "^1.22.1",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "source-map-js": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DStojecki/validat.js.git"
+  },
+  "keywords": [
+    "valid",
+    "validator",
+    "validation",
+    "input",
+    "form",
+    "javascript",
+    "js"
+  ],
+  "author": "Daniel Stojecki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DStojecki/validat.js/issues"
+  },
+  "homepage": "https://github.com/DStojecki/validat.js#readme"
 }
