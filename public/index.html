@@ -13,15 +13,22 @@
     <form id="myForm" class="validat-form">
         <div class="validat-form__group">
             <label for="">First name</label>
-            <input type="text" class="my-input">
+            <input data-required data-maxlength="2" type="text" class="my-input">
         </div>
         <div class="validat-form__group">
             <label for="">Second name</label>
-            <input type="text" class="my-input">
+            <input data-required data-minlength="3" type="number" class="my-input">
         </div>
         <div class="validat-form__group">
             <label for="">Age</label>
-            <input type="text" class="my-input">
+            <input data-required data-numberonly type="text" class="my-input">
+        </div>
+        <div class="validat-form__group">
+            <label for="">Are you sure?</label>
+            <div>
+                <input required type="checkbox" class="my-input">
+                <label for="">Yes</label>
+            </div>
         </div>
         <button class="validat-form__submit submit">Submit</button>
     </form>

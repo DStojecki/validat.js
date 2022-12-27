@@ -8,13 +8,14 @@
     &__group {
         display: flex;
         flex-direction: column;
-        margin: 6px 0px;
+        margin: 12px 0px;
+        position: relative;
 
         input {
             outline: none;
             padding: 8px;
             border-radius: 3px;
-            border: 2px solid #ccc;
+            border: 1px solid #ccc;
             font-size: 16px;
 
             &.error {
@@ -28,6 +29,13 @@
 
         label {
             margin-bottom: 4px;
+        }
+
+        .error-msg {
+            position: absolute;
+            bottom: -28px;
+            color: var(--color-error);
+            font-size: 12px;
         }
     }
 

@@ -1,29 +1,46 @@
 import '../sass/app.scss'
-
 import Validators from "./validators"
+import settings from '../../settings.json'
 
 export class Validat {
     constructor(config) {
+        this._valid = true
+        this._validationAttrsList = settings.settings
         this.inputs = [...document.querySelectorAll(config.selector)]
         this.addValidClass = config.addValidClass
-        this.valid = true
-    }
+    } 
 
     check() {
-        this.valid = true
+        this._valid = true
 
         this.inputs.forEach(input => {
-            const result = Validators.requaired(input, this.addValidClass)
+            let attrs = input.getAttributeNames()
+            const validators = []
 
-            result ? '' : this.valid = result
+            this._validationAttrsList.forEach((attr) => {
+                if(attrs.includes(attr.html)) validators.push(attr)
+            })
+
+            console.log(attrs, validators);
+
+            for(let i = 0; i < validators.length; i++) {
+                const parametr = input.getAttribute(validators[i].html)
+
+                console.log(validators[i].validat);
+
+                const settings = {
+                    input: input,
+                    addValid: this.addValidClass,
+                    parametr: parametr,
+                }
+
+                const result = eval(`Validators.${validators[i].validat}(settings)`)
+                result ? '' : this._valid = result
+
+                if(!result) break
+            }
         })
 
-        if(this.valid) this.removeValidationAll()
-    }
-
-    removeValidationAll() {
-        this.inputs.forEach(input => {
-            input.classList.remove('error')
-        })
+        return this._valid
     }
 }
