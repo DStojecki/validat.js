@@ -1,3 +1,5 @@
+import '../sass/app.scss'
+
 import Validators from "./validators"
 
 export class Validat {
@@ -25,6 +27,3 @@ export class Validat {
         })
     }
 }
-
-
-

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "sass": "^1.57.1",
     "vite": "^4.0.3"
   },
   "description": "Simple form and input validator package. ",
@@ -17,15 +18,15 @@
     "esbuild": "^0.16.10",
     "function-bind": "^1.1.1",
     "has": "^1.0.3",
-    "nanoid": "^3.3.4",
-    "postcss": "^8.4.20",
-    "picocolors": "^1.0.0",
     "is-core-module": "^2.11.0",
+    "nanoid": "^3.3.4",
     "path-parse": "^1.0.7",
-    "rollup": "^3.8.1",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.20",
     "resolve": "^1.22.1",
-    "supports-preserve-symlinks-flag": "^1.0.0",
-    "source-map-js": "^1.0.2"
+    "rollup": "^3.8.1",
+    "source-map-js": "^1.0.2",
+    "supports-preserve-symlinks-flag": "^1.0.0"
   },
   "repository": {
     "type": "git",
