@@ -8,6 +8,7 @@ export class Validat {
         this._validationAttrsList = settings.settings
         this.inputs = [...document.querySelectorAll(config.selector)]
         this.addValidClass = config.addValidClass
+        this.validators = new Validators
     } 
 
     check() {
@@ -21,20 +22,20 @@ export class Validat {
                 if(attrs.includes(attr.html)) validators.push(attr)
             })
 
-            console.log(attrs, validators);
-
             for(let i = 0; i < validators.length; i++) {
                 const parametr = input.getAttribute(validators[i].html)
 
-                console.log(validators[i].validat);
-
                 const settings = {
+                    object: validators[i],
                     input: input,
                     addValid: this.addValidClass,
                     parametr: parametr,
+                    
                 }
 
-                const result = eval(`Validators.${validators[i].validat}(settings)`)
+                const result = this.validators.validate(settings)
+
+                // const result = eval(`this.validators.${validators[i].validat}(settings)`)
                 result ? '' : this._valid = result
 
                 if(!result) break

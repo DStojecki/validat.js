@@ -1,18 +1,24 @@
-{"settings": [
-    {
-        "html":"data-required",
-        "validat":"validatRequaired"
-    },
-    {
-        "html":"data-minlength",
-        "validat":"validatMinLength"
-    },
-    {
-        "html":"data-maxlength",
-        "validat":"validatMaxLength"
-    },
-    {
-        "html":"data-numberonly",
-        "validat":"validatNumber"
-    }
- ]}
+{
+    "settings": [
+        {
+            "name": "requaired",
+            "html":"data-required",
+            "validat":"validatRequaired"
+        },
+        {
+            "name": "minLength",
+            "html":"data-minlength",
+            "validat":"validatMinLength"
+        },
+        {
+            "name": "maxLength",
+            "html":"data-maxlength",
+            "validat":"validatMaxLength"
+        },
+        {
+            "name": "number",
+            "html":"data-numberonly",
+            "validat":"validatNumber"
+        }
+    ]
+}

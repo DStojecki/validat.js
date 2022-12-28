@@ -1,59 +1,88 @@
 export default class Validators {
-    static validatRequaired(settings) {
-        if(settings.input.value == ''){
-            Validators.addValidationMsg(settings.input, 'This field is requaired!')
-
-            return false
-        }else {
-            Validators.removeValidaitonMsg(settings.input, settings.addValid)
-
-            return true
+    constructor() {
+        this.preSets = {
+            requaired: {
+                validationFunction: this.isEmpty,
+            },
+            minLength: {
+                validationFunction: this.isLowerMinLength,
+            },
+            maxLength: {
+                validationFunction: this.isHigherMaxLength,
+            },
+            number: {
+                validationFunction: this.isNumber,
+            }
         }
     }
 
-    static validatNumber(settings) {
+    validate(settings) {
+        const keyName = settings.object.name
         const value = settings.input.value
+        const parametr = settings.parametr
+        const errorMsg = this.generateErrorMsg(keyName, parametr)
 
-        if(!/^\d+$/.test(value)){
-            Validators.addValidationMsg(settings.input, `This field can contain numbers only`)
+        if(this.preSets[keyName].validationFunction(value, parametr)){
+            this.addValidationMsg(settings.input, errorMsg)
 
             return false
         }else {
-            Validators.removeValidaitonMsg(settings.input, settings.addValid)
+            this.removeValidaitonMsg(settings.input, settings.addValid)
 
             return true
         }
     }
 
-    static validatMinLength(settings) {
-        const value = settings.input.value
+    generateErrorMsg(type, parametr) {
+        let msg = ''
+        switch(type) {
+            case 'requaired':
+                msg = 'This field is requaired!'
+                break;
 
-        if(value.length < Number(settings.parametr)){
-            Validators.addValidationMsg(settings.input, `This field cant be shorter than ${settings.parametr} characters`)
+            case 'minLength':
+                msg = `This field minimum length is ${parametr} characters`
+                break;
 
-            return false
-        }else {
-            Validators.removeValidaitonMsg(settings.input, settings.addValid)
+            case 'maxLength':
+                msg = `This field maximum length is ${parametr} characters`
+                break;
 
-            return true
+            case 'number':
+                msg = 'This field can contain numbers only'
+                break;
         }
+
+
+        return msg
+        
     }
 
-    static validatMaxLength(settings) {
-        const value = settings.input.value
+    isEmpty(value) {
+        if(value == '') return true
 
-        if(value.length > Number(settings.parametr)){
-            Validators.addValidationMsg(settings.input, `This field cant be longer than ${settings.parametr} characters`)
-
-            return false
-        }else {
-            Validators.removeValidaitonMsg(settings.input, settings.addValid)
-
-            return true
-        }
+        return false
     }
 
-    static addValidationMsg(element, msg) {
+    isLowerMinLength(value, minLength) {
+        if(value.length < Number(minLength)) return true
+        
+        return false
+    }
+
+    isHigherMaxLength(value, maxLength) {
+        if(value.length > Number(maxLength)) return true
+        
+        return false
+    }
+
+    isNumber(value) {
+        if(!/^\d+$/.test(value)) return true
+
+        return false
+    }
+
+    addValidationMsg(element, msg) {
         element.classList.add('error')
         element.classList.remove('valid')
         const errorMsg = element.parentElement.querySelector('.error-msg')
@@ -68,7 +97,7 @@ export default class Validators {
         }
     }
 
-    static removeValidaitonMsg(element, addValid) {
+    removeValidaitonMsg(element, addValid) {
         element.classList.remove('error')
         const errorMsg = element.parentElement.querySelector('.error-msg')        
 
