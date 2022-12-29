@@ -5,6 +5,7 @@ const submit = document.querySelector('.submit')
 const config = {
     selector: '.my-input',
     addValidClass: true,
+    validateOn: 'keyup'
 }
 
 const validat = new Validat(config)
