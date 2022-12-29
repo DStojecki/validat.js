@@ -1,6 +1,6 @@
-import '../sass/app.scss'
+import './resources/sass/app.scss'
 import Validators from "./validators"
-import settings from '../../settings.json'
+import settings from './settings.json'
 
 export class Validat {
     constructor(config) {
@@ -13,7 +13,6 @@ export class Validat {
         if(config.validateOn == '') return
 
         this.validateOnEvent(config.validateOn)
-        
     }
     
     validateOnEvent(settingsEvent) {

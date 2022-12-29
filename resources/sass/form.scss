@@ -34,9 +34,13 @@
 
         .error-msg {
             position: absolute;
-            bottom: -28px;
+            bottom: -15px;
             color: var(--color-error);
             font-size: 12px;
+            line-height: 12px;
+            margin: 0;
+            padding: 0;
+
         }
     }
 

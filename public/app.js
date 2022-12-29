@@ -1,4 +1,4 @@
-import { Validat } from '../resources/js/main'
+import { Validat } from '../main'
 
 const submit = document.querySelector('.submit')
 
