@@ -2,7 +2,7 @@ import './resources/sass/app.scss'
 import Validators from "./validators"
 import settings from './settings.json'
 
-export class Validat {
+export class Valider {
     constructor(config) {
         this._valid = true
         this._validationAttrsList = settings.settings

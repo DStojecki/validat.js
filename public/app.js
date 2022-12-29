@@ -1,4 +1,4 @@
-import { Validat } from '../main'
+import { Valider } from '../main'
 
 const submit = document.querySelector('.submit')
 
@@ -8,12 +8,12 @@ const config = {
     validateOn: 'keyup'
 }
 
-const validat = new Validat(config)
+const valider = new Valider(config)
 
 submit.addEventListener('click', (e) => {
     e.preventDefault()
 
-    if(validat.check()) {
-        console.log('Validation successfull');
+    if(valider.check()) {
+        console.log('Validation successfull')
     }
 })

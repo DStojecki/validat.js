@@ -98,8 +98,8 @@ export default class Validators {
     }
 
     addValidationMsg(element, msg) {
-        element.classList.add('validat-error')
-        element.classList.remove('validat-valid')
+        element.classList.add('valider-error')
+        element.classList.remove('valider-valid')
         const errorMsg = element.parentElement.querySelector('.error-msg')
 
         if(errorMsg) {
@@ -113,10 +113,10 @@ export default class Validators {
     }
 
     removeValidaitonMsg(element, addValid) {
-        element.classList.remove('validat-error')
+        element.classList.remove('valider-error')
         const errorMsg = element.parentElement.querySelector('.error-msg')        
 
         if(errorMsg) errorMsg.textContent = ''
-        if(addValid) element.classList.add('validat-valid')
+        if(addValid) element.classList.add('valider-valid')
     }
 }
