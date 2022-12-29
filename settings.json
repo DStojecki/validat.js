@@ -2,23 +2,19 @@
     "settings": [
         {
             "name": "requaired",
-            "html":"data-required",
-            "validat":"validatRequaired"
+            "html":"data-required"
         },
         {
             "name": "minLength",
-            "html":"data-minlength",
-            "validat":"validatMinLength"
+            "html":"data-minlength"
         },
         {
             "name": "maxLength",
-            "html":"data-maxlength",
-            "validat":"validatMaxLength"
+            "html":"data-maxlength"
         },
         {
             "name": "number",
-            "html":"data-numberonly",
-            "validat":"validatNumber"
+            "html":"data-numberonly"
         }
     ]
 }

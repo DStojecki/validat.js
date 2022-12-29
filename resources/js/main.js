@@ -30,12 +30,10 @@ export class Validat {
                     input: input,
                     addValid: this.addValidClass,
                     parametr: parametr,
-                    
                 }
 
                 const result = this.validators.validate(settings)
 
-                // const result = eval(`this.validators.${validators[i].validat}(settings)`)
                 result ? '' : this._valid = result
 
                 if(!result) break

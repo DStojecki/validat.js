@@ -19,10 +19,9 @@ export default class Validators {
     validate(settings) {
         const keyName = settings.object.name
         const value = settings.input.value
-        const parametr = settings.parametr
-        const errorMsg = this.generateErrorMsg(keyName, parametr)
+        const errorMsg = this.generateErrorMsg(keyName, settings)
 
-        if(this.preSets[keyName].validationFunction(value, parametr)){
+        if(this.preSets[keyName].validationFunction(value, settings)){
             this.addValidationMsg(settings.input, errorMsg)
 
             return false
@@ -33,7 +32,7 @@ export default class Validators {
         }
     }
 
-    generateErrorMsg(type, parametr) {
+    generateErrorMsg(type, settings) {
         let msg = ''
         switch(type) {
             case 'requaired':
@@ -41,11 +40,11 @@ export default class Validators {
                 break;
 
             case 'minLength':
-                msg = `This field minimum length is ${parametr} characters`
+                msg = `This field minimum length is ${settings.parametr} characters`
                 break;
 
             case 'maxLength':
-                msg = `This field maximum length is ${parametr} characters`
+                msg = `This field maximum length is ${settings.parametr} characters`
                 break;
 
             case 'number':
@@ -55,23 +54,37 @@ export default class Validators {
 
 
         return msg
-        
     }
 
-    isEmpty(value) {
-        if(value == '') return true
+    isEmpty(value, settings) {
+        const input = settings.input
+        const inputType = input.getAttribute('type')
 
+        if(inputType == 'checkbox') {
+            if(input.checked == true) return false
+
+            return true
+        }else if(inputType == 'radio') {
+            const name = input.getAttribute('name')
+            const radios = [...document.querySelectorAll(`[name="${name}"]`)]
+
+            if(radios.some(radio => radio.checked)) return false
+            return true
+        }else {
+            if(value == '') return true
+    
+            return false
+        }
+    }
+
+    isLowerMinLength(value, settings) {
+        if(value.length < Number(settings.parametr)) return true
+        
         return false
     }
 
-    isLowerMinLength(value, minLength) {
-        if(value.length < Number(minLength)) return true
-        
-        return false
-    }
-
-    isHigherMaxLength(value, maxLength) {
-        if(value.length > Number(maxLength)) return true
+    isHigherMaxLength(value, settings) {
+        if(value.length > Number(settings.parametr)) return true
         
         return false
     }

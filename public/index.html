@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-    <form id="myForm" class="validat-form">
+    <form class="validat-form">
         <div class="validat-form__group">
             <label for="">First name</label>
-            <input data-required  data-minlength="3" class="my-input">
+            <input data-required data-minlength="3" class="my-input">
         </div>
         <div class="validat-form__group">
             <label for="">Second name</label>
@@ -21,13 +21,24 @@
         </div>
         <div class="validat-form__group">
             <label for="">Age</label>
-            <input data-required data-numberonly class="my-input">
+            <input data-required data-numberonly data-maxlength="3" class="my-input">
         </div>
         <div class="validat-form__group">
             <label for="">Are you sure?</label>
             <div>
                 <input data-required type="checkbox" class="my-input">
                 <label for="">Yes</label>
+            </div>
+        </div>
+        <div class="validat-form__group">
+            <label for="">Are you sure radio?</label>
+            <div>
+                <input id="1" data-required type="radio" class="my-input" name="radioGroup" value="test1">
+                <label for="1">Yes</label>
+            </div>
+            <div>
+                <input id="2" data-required type="radio" class="my-input" name="radioGroup" value="test">
+                <label for="2">Yes but even more</label>
             </div>
         </div>
         <button class="validat-form__submit submit">Submit</button>
