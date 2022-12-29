@@ -1,7 +1,7 @@
 export default class Validators {
     constructor() {
         this.preSets = {
-            requaired: {
+            required: {
                 validationFunction: this.isEmpty,
             },
             minLength: {
@@ -35,8 +35,8 @@ export default class Validators {
     generateErrorMsg(type, settings) {
         let msg = ''
         switch(type) {
-            case 'requaired':
-                msg = 'This field is requaired!'
+            case 'required':
+                msg = 'This field is required!'
                 break;
 
             case 'minLength':

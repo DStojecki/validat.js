@@ -1,7 +1,7 @@
 {
     "settings": [
         {
-            "name": "requaired",
+            "name": "required",
             "html":"data-required"
         },
         {
