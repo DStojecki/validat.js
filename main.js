@@ -44,7 +44,6 @@ export class Valider {
             if(attrs.includes(attr.html)) validators.push(attr)
         })
 
-        console.log(validators);
 
         for(let i = 0; i < validators.length; i++) {
             const parametr = input.getAttribute(validators[i].html)
