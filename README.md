@@ -23,10 +23,10 @@ After that in your HTML file:
 
     <div class="valider-form__group">
 	    <label>First name</label>
-	    <input data-required data-minlength="3" class="my-input">
+	    <input data-required data-email class="my-input">
     </div>
     <script defer type="module" src="./app.js"></script>
-In above example input will check if it's not empty and if his value lenght is minimum 3. 
+In above example input will check if it's not empty and if his value matches email format. 
 
 Valider.js download all data attributes and add validation based on them. 
 
@@ -34,6 +34,7 @@ Valider.js download all data attributes and add validation based on them.
 |  Name| Parameter|Description|
 |--|--|--|
 | data-required | - |Checks if input is empty|
+| data-email | - |Checks if value matches email format|
 | data-minlength="7" | `Number` |Checks if inputs length is not lower than parameter|
 | data-maxlength="7" | `Number` |Checks if inputs length is not higher than parameter|
 | data-numberonly | - |Checks if input has only numbers|
@@ -65,6 +66,14 @@ If you want to make only one validation before sending request just provide no e
 		    // Here you can add your request method
 	    }
     })
+## Styles
+
+Valider.js provides some predefined styles that can be changed to fit your layout.
+
+`.valider-error` - class added to input if validation fails
+`.valider-valid` - class added to input if validation passes
+`.error-msg` - class added to error message
+Error message is added directly after input.
 
 ## Example HTML form
 
