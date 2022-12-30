@@ -1,21 +1,11 @@
 export default class Validators {
     constructor() {
-        this.preSets = {
-            required: {
-                validationFunction: this.isEmpty,
-            },
-            minLength: {
-                validationFunction: this.isLowerMinLength,
-            },
-            maxLength: {
-                validationFunction: this.isHigherMaxLength,
-            },
-            number: {
-                validationFunction: this.isNumber,
-            },
-            email: {
-                validationFunction: this.isEmail,
-            }
+        this.validationFunctions = {
+            required: this.isEmpty,
+            minLength: this.isLowerMinLength,
+            maxLength: this.isHigherMaxLength,
+            number: this.isNumber,
+            email: this.isEmail,
         }
     }
 
@@ -24,7 +14,7 @@ export default class Validators {
         const value = settings.input.value
         const errorMsg = this.generateErrorMsg(keyName, settings)
 
-        if(this.preSets[keyName].validationFunction(value, settings)){
+        if(this.validationFunctions[keyName](value, settings)){
             this.addValidationMsg(settings.input, errorMsg)
 
             return false

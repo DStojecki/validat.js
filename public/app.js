@@ -1,4 +1,4 @@
-import { Valider } from '../main'
+import { Valider } from '../main.js'
 
 const submit = document.querySelector('.submit')
 
