@@ -39,6 +39,8 @@ Valider.js download all data attributes and add validation based on them.
 | data-maxlength="7" | `Number` |Checks if inputs length is not higher than parameter|
 | data-numberonly | - |Checks if input has only numbers|
 | data-event="change" | `String` |If you want to validate particular input on diffrent event than rest of them you can provide it here. Maybe usefull with validating radios and checkboxes|
+| data-custom="" | `RegExp` |Used for custom validators. To work properly you need to define custom validatio message|
+| data-custom-err | `String` | Messege that will be displayed when your custom RegExp test fails.
 
 More validators will be added soon.
 
@@ -66,16 +68,21 @@ If you want to make only one validation before sending request just provide no e
 		    // Here you can add your request method
 	    }
     })
+## Create Custom Validators
+You can create your own validators based on RegExp. You need to provide RegExp inside `data-custom` attribute and coresponding error messega inside `data-custom-err`.
+
+    <div  class="valider-form__group">
+	    <label for="">Characters only</label>
+	    <input data-custom="^[a-zA-Z]+$" data-custom-err="This field should contain letters only" class="my-input">
+    </div>
+
 ## Styles
 
 Valider.js provides some predefined styles that can be changed to fit your layout.
 
-`.valider-error` - class added to input if validation fails		
-
-`.valider-valid` - class added to input if validation passes	
-
-`.error-msg` - class added to error message			
-
+`.valider-error` - class added to input if validation fails
+`.valider-valid` - class added to input if validation passes
+`.error-msg` - class added to error message
 Error message is added directly after input.
 
 ## Example HTML form
