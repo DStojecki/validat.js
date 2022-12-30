@@ -25,14 +25,14 @@
                 </select>
             </div>
             <div class="valider-form__group">
-                <label for="">Second name</label>
-                <input data-required data-maxlength="2" class="my-input">
+                <label for="">Characters only</label>
+                <input data-required data-custom="^[a-zA-Z]+$" data-custom-err="This field should contain letters only" class="my-input">
             </div>
         </form>
         <form class="valider-form">
             <div class="valider-form__group">
                 <label for="">Age</label>
-                <input data-required data-numberonly data-maxlength="3" class="my-input">
+                <input data-numberonly data-maxlength="3" class="my-input">
             </div>
             <div class="valider-form__group">
                 <label for="">Are you sure?</label>

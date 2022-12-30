@@ -37,12 +37,16 @@ export default class Valider {
 
     triggerValidators(input) {
         const attrs = input.getAttributeNames()
-        const validators = []
+        let validators = []
 
         this._validationAttrsList.forEach((attr) => {
-            if(attrs.includes(attr.html)) validators.push(attr)
+            // GURAD if attribute is not related with library
+            if(!attrs.includes(attr.html)) return
+                
+            validators.push(attr)
         })
 
+        validators = this.sortValidators(validators)       
 
         for(let i = 0; i < validators.length; i++) {
             const parametr = input.getAttribute(validators[i].html)
@@ -60,5 +64,17 @@ export default class Valider {
 
             if(!result) break
         }
+    }
+
+    sortValidators(validators)  {
+        const index = validators.findIndex(el => el.name == 'required')
+        // GURAD if no required found
+        if(index == -1) return validators
+
+        const element = validators.splice(index, 1)[0]
+
+        validators.splice(0,0,element)
+        
+        return validators
     }
 }

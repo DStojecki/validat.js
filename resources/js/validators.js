@@ -6,6 +6,7 @@ export default class Validators {
             maxLength: this.isHigherMaxLength,
             number: this.isNumber,
             email: this.isEmail,
+            custom: this.custom,
         }
     }
 
@@ -28,6 +29,10 @@ export default class Validators {
     generateErrorMsg(type, settings) {
         let msg = ''
         switch(type) {
+            case 'custom':
+                msg = settings.input.getAttribute('data-custom-err')
+                break;
+
             case 'email':
                 msg = 'Please provide valid email address'
                 break;
@@ -47,9 +52,17 @@ export default class Validators {
             case 'number':
                 msg = 'This field can contain numbers only'
                 break;
+                
         }
 
         return msg
+    }
+
+    custom(value, settings) {
+        const regexp = new RegExp(settings.input.getAttribute('data-custom'))
+        const result = regexp.test(String(value).toLowerCase())
+
+        return !result
     }
 
     isEmpty(value, settings) {

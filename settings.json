@@ -1,6 +1,10 @@
 {
     "settings": [
         {
+            "name": "custom",
+            "html":"data-custom"
+        },
+        {
             "name": "required",
             "html":"data-required"
         },
