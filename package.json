@@ -1,7 +1,7 @@
 {
   "name": "valider.js",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -39,7 +39,13 @@
     "input",
     "form",
     "javascript",
-    "js"
+    "js",
+    "js validation",
+    "js valider",
+    "js valid",
+    "javascript validation",
+    "javascript valider",
+    "javascript valid"
   ],
   "author": "Daniel Stojecki",
   "license": "ISC",
