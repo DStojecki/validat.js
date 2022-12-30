@@ -12,6 +12,9 @@ export default class Validators {
             },
             number: {
                 validationFunction: this.isNumber,
+            },
+            email: {
+                validationFunction: this.isEmail,
             }
         }
     }
@@ -35,6 +38,10 @@ export default class Validators {
     generateErrorMsg(type, settings) {
         let msg = ''
         switch(type) {
+            case 'email':
+                msg = 'Please provide valid email address'
+                break;
+
             case 'required':
                 msg = 'This field is required!'
                 break;
@@ -52,15 +59,12 @@ export default class Validators {
                 break;
         }
 
-
         return msg
     }
 
     isEmpty(value, settings) {
         const input = settings.input
         const inputType = input.getAttribute('type')
-
-        console.log(input);
 
         if(inputType == 'checkbox') {
             if(input.checked == true) return false
@@ -77,6 +81,13 @@ export default class Validators {
     
             return false
         }
+    }
+
+    isEmail(email) {
+        const regexp = /^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4};?)+$/
+        const result = regexp.test(String(email).toLowerCase())
+
+        return !result
     }
 
     isLowerMinLength(value, settings) {

@@ -5,6 +5,10 @@
             "html":"data-required"
         },
         {
+            "name": "email",
+            "html":"data-email"
+        },
+        {
             "name": "minLength",
             "html":"data-minlength"
         },
