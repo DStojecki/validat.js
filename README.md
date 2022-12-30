@@ -70,9 +70,12 @@ If you want to make only one validation before sending request just provide no e
 
 Valider.js provides some predefined styles that can be changed to fit your layout.
 
-`.valider-error` - class added to input if validation fails
-`.valider-valid` - class added to input if validation passes
-`.error-msg` - class added to error message
+`.valider-error` - class added to input if validation fails		
+
+`.valider-valid` - class added to input if validation passes	
+
+`.error-msg` - class added to error message			
+
 Error message is added directly after input.
 
 ## Example HTML form
