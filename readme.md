@@ -133,7 +133,7 @@ Error message is added directly after input.
 **app.js**    
 
 
-	import { Valider } from  '../main.js'
+	import { Valider } from  'valider.js'
     const  submit  =  document.querySelector('.submit')
           
     const  config  = {
