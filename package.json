@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DStojecki/validat.js.git"
+    "url": "git+https://github.com/DStojecki/valider.js.git"
   },
   "keywords": [
     "valid",
@@ -50,7 +50,7 @@
   "author": "Daniel Stojecki",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DStojecki/validat.js/issues"
+    "url": "https://github.com/DStojecki/valider.js/issues"
   },
-  "homepage": "https://github.com/DStojecki/validat.js#readme"
+  "homepage": "https://github.com/DStojecki/valider.js#readme"
 }
