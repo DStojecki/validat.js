@@ -86,7 +86,9 @@ Valider.js provides some predefined styles that can be changed to fit your layou
 `.error-msg` - class added to error message
 Error message is added directly after input.
 
-## Example HTML form
+## Example  form
+
+**HTML**
 
     <form class="valider-form">
 	   <div class="valider-form__group">
@@ -127,4 +129,24 @@ Error message is added directly after input.
 	</div>
 	<button class="valider-form__submit submit">Submit</button> 
     </form>
+
+**app.js**    
+
+
+	import { Valider } from  '../main.js'
+    const  submit  =  document.querySelector('.submit')
+          
+    const  config  = {
+	    selector: '.my-input',
+	    addValidClass: true,
+	    validateOn: 'keyup'
+    } 
     
+    const  valider  =  new  Valider(config)
+   
+    submit.addEventListener('click', (e) => {
+	    e.preventDefault()
+        if(valider.check()) {
+		    console.log('Validation successfull')
+	    }
+    })
