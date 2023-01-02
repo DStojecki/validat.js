@@ -35,6 +35,7 @@ Valider.js download all data attributes and add validation based on them.
 |--|--|--|
 | data-required | - |Checks if input is empty|
 | data-email | - |Checks if value matches email format|
+| data-placeholder="First Name" | `Strings` |Add placeholder when hovering on input|
 | data-minlength="7" | `Number` |Checks if inputs length is not lower than parameter|
 | data-maxlength="7" | `Number` |Checks if inputs length is not higher than parameter|
 | data-numberonly | - |Checks if input has only numbers|
@@ -127,4 +128,3 @@ Error message is added directly after input.
 	<button class="valider-form__submit submit">Submit</button> 
     </form>
     
-
