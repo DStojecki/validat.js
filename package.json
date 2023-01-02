@@ -1,7 +1,7 @@
 {
   "name": "valider.js",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -48,7 +48,7 @@
     "javascript valid"
   ],
   "author": "Daniel Stojecki",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DStojecki/valider.js/issues"
   },
