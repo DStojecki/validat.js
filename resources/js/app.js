@@ -12,6 +12,24 @@ export default class Valider {
         if(config.validateOn == '') return
 
         this.validateOnEvent(config.validateOn)
+        this.setListeners()
+    }
+
+    setListeners() {
+        this.inputs.forEach(input => {
+            const placeholderAttr = input.getAttribute('data-placeholder')
+
+            if(!placeholderAttr) return
+
+            input.addEventListener('mouseover',() => {
+                input.placeholder = placeholderAttr
+            })
+
+            input.addEventListener('mouseout',() => {
+                input.placeholder = ''
+            })
+        })
+
     }
     
     validateOnEvent(settingsEvent) {
