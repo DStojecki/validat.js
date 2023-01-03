@@ -1,6 +1,9 @@
 # **valider.js**
-
 Light and simple form and input validation package. Plain javascript lib, plug and play!
+## DEMO
+
+https://dstojecki.github.io/valider.js-demo/
+
 ![enter image description here](https://i.ibb.co/pjLGBwV/sss.png)
 ## Instalation
 
