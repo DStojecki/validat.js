@@ -5,6 +5,7 @@ export default class Valider {
     constructor(config) {
         this._valid = true
         this._validationAttrsList = settings.settings
+        this.config = config
         this.inputs = [...document.querySelectorAll(config.selector)]
         this.addValidClass = config.addValidClass
         this.validators = new Validators
@@ -13,6 +14,52 @@ export default class Valider {
 
         this.validateOnEvent(config.validateOn)
         this.setListeners()
+    }
+
+    send() {
+        let respond = ''
+
+        if(!this.check()) {
+            console.log('Validation error')
+        }else {
+            respond = this.request()
+        }
+
+        return respond
+    }
+
+    buildRequestBody() {
+        let body = {}
+
+        this.inputs.forEach(input => {
+            let key = input.getAttribute('name')
+
+            if(key === null) key = 'Name attr missing'
+
+            body[key] = input.value
+        })
+
+        return body
+    }
+
+    async request() {
+        const url = this.config.request.route
+        const body = this.buildRequestBody()
+    
+        console.log(body);
+        try {
+            const response = await fetch(url, {
+                method: this.config.request.method,
+                body: JSON.stringify(body)
+            })
+
+            const data = await response.json()
+
+            return data
+        } 
+        catch (error) {
+            return error
+        }
     }
 
     setListeners() {

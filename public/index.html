@@ -14,22 +14,18 @@
         <form class="valider-form">
             <div class="valider-form__group">
                 <label for="">Email</label>
-                <input data-required data-placeholder="example@gmail.com" data-email data-minlength="3" class="my-input">
+                <input name="email" data-required data-placeholder="example@gmail.com" data-email data-minlength="3" class="my-input">
             </div>
             <div class="valider-form__group">
-                <label for="">Select something</label>
-                <select data-required data-event="change" class="my-input">
-                    <option value="" selected></option>
-                    <option value="Some">Some</option>
-                    <option value="Thing">Thing</option>
-                </select>
+                <label for="">Age</label>
+                <input name="age" data-numberonly data-maxlength="3" class="my-input">
             </div>
             <div class="valider-form__group"> 
                 <label for="">Characters only</label>
                 <input data-required data-custom="^[a-zA-Z]+$" data-custom-err="This field should contain letters only" class="my-input">
             </div>
         </form>
-        <form class="valider-form">
+        <!-- <form class="valider-form">
             <div class="valider-form__group">
                 <label for="">Age</label>
                 <input data-numberonly data-maxlength="3" class="my-input">
@@ -50,7 +46,7 @@
                     <label for="2">No</label>
                 </div>
             </div>
-        </form>
+        </form> -->
     </div>
     <button class="valider-form__submit submit" style="margin-left: 270px;">Submit</button>
     

@@ -5,15 +5,17 @@ const submit = document.querySelector('.submit')
 const config = {
     selector: '.my-input',
     addValidClass: true,
-    validateOn: 'keyup'
+    validateOn: 'keyup',
+    request: {
+        route: 'http://127.0.0.1:8000/api/schools',
+        method: 'POST',
+    }
 }
 
 const valider = new Valider(config)
 
 submit.addEventListener('click', (e) => {
-    e.preventDefault()
+    const respond = valider.send()
 
-    if(valider.check()) {
-        console.log('Validation successfull')
-    }
+    console.log(respond);
 })
