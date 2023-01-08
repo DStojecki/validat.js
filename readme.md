@@ -48,6 +48,28 @@ Valider.js download all data attributes and add validation based on them.
 
 More validators will be added soon.
 
+## Send Request
+If you want you can send request using valider.js by passing props to config object :
+
+    import { Valider } from  'valider.js'
+    
+    const submit = document.querySelector('.submit')
+    
+    const config = {
+	    selector: '.my-input',
+	    addValidClass: true,
+	    request: {
+		    route: 'http://127.0.0.1:8000/api/schools',
+		    method: 'POST',
+		}
+	}
+	const  valider  =  new  Valider(config)
+	submit.addEventListener('click', (e) => {
+		const  respond  =  valider.send()
+	})
+
+Valider.js will build request payload using name attributes in html input tag.
+
 
 ## Validate before sending request
 If you want to make only one validation before sending request just provide no event in config object and call check() function before sending request.
